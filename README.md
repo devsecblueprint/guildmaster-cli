@@ -1,2 +1,3 @@
-# discord-channel-scripts
-Administrative Scripts for Discord
+# GuildMaster CLI
+
+🚧 This repository is still in progress 🚧
