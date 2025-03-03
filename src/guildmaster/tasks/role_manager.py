@@ -1,13 +1,15 @@
 import asyncio
 import discord
-from client.discord_client import DiscordClient, TOKEN
+from client.discord_client import DiscordClient
 
-class DiscordRoleAssigner:
+class DiscordRoleManager:
     """
-    A class for assigning a role to every member in a Discord server.
+    A class for managing a role to every member in a Discord server.
     """
+    def __init__(self):
+        pass
     
-    def assign(self, guild: int, role: str, delay: float = 3.0):
+    def assign_to_all(self, guild: int, role: str, delay: float = 3.0):
         """
         Assign a role to every member in a Discord server.
 
