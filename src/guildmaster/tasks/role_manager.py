@@ -1,6 +1,6 @@
 import asyncio
 import discord
-from client.discord_client import DiscordClient
+from guildmaster.client.discord_client import DiscordClient
 
 class DiscordRoleManager:
     """
@@ -24,6 +24,7 @@ class DiscordRoleManager:
         @client.bot.event
         async def on_ready():
             print(f"Logged in as {client.bot.user}")
+            print("Guilds:", client.bot.guilds)
 
             # Fetch the guild using the provided guild ID
             guild_obj = client.bot.get_guild(guild)
@@ -52,6 +53,6 @@ class DiscordRoleManager:
                         print(f"Failed to add role to {member.name}#{member.discriminator}: {e}")
 
             print("Finished processing all members.")
-            await client.close()
+            await client.bot.close()
 
         client.run()

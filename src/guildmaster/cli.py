@@ -1,13 +1,13 @@
 import sys
 import fire
-from tasks.role_manager import DiscordRoleManager
+from guildmaster.tasks.role_manager import DiscordRoleManager
 
 class GuildMasterCommands:
     """
     A CLI tool for managing Discord server tasks and settings.
     """
     def __init__(self):
-        self.role_manager = DiscordRoleManager()
+        self.role = DiscordRoleManager()
 
 def main():
     try:
