@@ -1,5 +1,8 @@
 import asyncio
 import discord
+from tqdm.asyncio import tqdm
+
+from guildmaster.config.logger import Logger
 from guildmaster.client.discord_client import DiscordClient
 
 class DiscordRoleManager:
@@ -7,7 +10,7 @@ class DiscordRoleManager:
     A class for managing a role to every member in a Discord server.
     """
     def __init__(self):
-        pass
+        self.logger = Logger.setup_logger(__name__)
     
     def assign_to_all(self, guild: int, role: str, delay: float = 3.0):
         """
@@ -23,36 +26,36 @@ class DiscordRoleManager:
 
         @client.bot.event
         async def on_ready():
-            print(f"Logged in as {client.bot.user}")
-            print("Guilds:", client.bot.guilds)
+            self.logger.info("Logged in as %s", client.bot.user)
 
             # Fetch the guild using the provided guild ID
             guild_obj = client.bot.get_guild(guild)
             if not guild_obj:
-                print("Guild not found. Please check your guild ID.")
+                self.logger.error("Guild not found. Please check your guild ID.")
                 await client.bot.close()
                 return
 
             # Retrieve the role by name
             role_obj = discord.utils.get(guild_obj.roles, name=role)
             if not role_obj:
-                print("Role not found. Please check the role name.")
+                self.logger.error("Role not found. Please check the role name.")
                 await client.bot.close()
                 return
 
-            print(f"Assigning role '{role_obj.name}' to all members of '{guild_obj.name}'...")
+            self.logger.debug("Assigning role '%s' to all members of '%s'...", role, guild_obj.name)
 
             # Iterate through each member and add the role if they don't have it
-            for member in guild_obj.members:
+            members = guild_obj.members
+            async for member in tqdm(members, desc="Assigning roles", unit="member"):
                 if role_obj not in member.roles:
                     try:
                         await member.add_roles(role_obj)
-                        print(f"Added role to {member.name}#{member.discriminator}")
+                        self.logger.debug("Added role to %s#%s", member.name, member.discriminator)
                         await asyncio.sleep(delay)
                     except Exception as e:
-                        print(f"Failed to add role to {member.name}#{member.discriminator}: {e}")
+                        self.logger.error("Failed to add role to %s#%s: %s", member.name, member.discriminator, e)
 
-            print("Finished processing all members.")
+            self.logger.debug("Finished processing all members.")
             await client.bot.close()
 
         client.run()
