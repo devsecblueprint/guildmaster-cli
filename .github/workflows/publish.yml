@@ -3,6 +3,10 @@ name: Publish Artifacts
 on:
   workflow_call:
 
+permissions:
+  id-token: write
+  contents: read
+
 jobs:
   pypi-publish:
     name: Upload Release to PyPI
@@ -22,3 +26,4 @@ jobs:
           python -m build
       - name: Publish package distributions to PyPI
         uses: pypa/gh-action-pypi-publish@release/v1
+

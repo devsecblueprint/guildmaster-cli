@@ -5,15 +5,9 @@ on:
       - main
   workflow_dispatch:
 
-permissions:
-  contents: read
-  security-events: write
-  actions: read
-
 jobs:
   # Add Publisher Job here
   publish:
     uses: ./.github/workflows/publish.yml
     secrets: inherit
-    permissions:
-      id-token: write
+      
