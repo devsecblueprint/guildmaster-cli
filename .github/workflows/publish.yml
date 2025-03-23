@@ -1,7 +1,9 @@
 name: Publish Artifacts
 
 on:
-  workflow_call:
+  push:
+    branches:
+      - main
 
 permissions:
   id-token: write
