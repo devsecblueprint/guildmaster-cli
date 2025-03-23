@@ -1,19 +1,18 @@
-name: Build Docker Image
+name: Build Python Project
 on:
   workflow_call:
 
 
 jobs: 
-     # Build Docker Image  
   build:
-    name: Build Docker Image
+    name: Install dependencies and build project
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
-
-    - name: Build Docker Image
-      run: |
-        docker build -t awesome-fastapi:${{ github.sha }} . 
-        
+      - uses: actions/checkout@v4
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          python -m pip install --upgrade pip
+      - name: Build Project
+        run: |
+          python -m build

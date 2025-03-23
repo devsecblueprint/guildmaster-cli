@@ -1,13 +1,18 @@
-# name: Main Workflow
-# on:
-#   push:
-#     branches:
-#       - main
-#   workflow_dispatch:
+name: Main Workflow
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
 
-# jobs:
-#   # Add Publisher Job here
-#   publish:
-#     uses: ./.github/workflows/publish.yml
-#     secrets: inherit
-      
+jobs:
+  # Add Publisher Job here
+  build:
+    uses: ./.github/workflows/build.yml
+    secrets: inherit
+  syntax:
+    uses: ./.github/workflows/syntax.yml
+    secrets: inherit
+  scan:
+    uses: ./.github/workflows/scan.yml
+    secrets: inherit
