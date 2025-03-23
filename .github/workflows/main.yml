@@ -12,7 +12,9 @@ jobs:
     secrets: inherit
   syntax:
     uses: ./.github/workflows/syntax.yml
+    needs: build
     secrets: inherit
   scan:
     uses: ./.github/workflows/scan.yml
+    needs: build
     secrets: inherit
