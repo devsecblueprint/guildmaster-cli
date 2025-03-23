@@ -1,5 +1,6 @@
 import logging
 
+
 class Logger:
     @staticmethod
     def setup_logger(name: str, level: int = logging.INFO) -> logging.Logger:
@@ -13,7 +14,9 @@ class Logger:
         Returns:
             logging.Logger: Configured logger instance.
         """
-        formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+        formatter = logging.Formatter(
+            "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+        )
 
         console_handler = logging.StreamHandler()
         console_handler.setFormatter(formatter)

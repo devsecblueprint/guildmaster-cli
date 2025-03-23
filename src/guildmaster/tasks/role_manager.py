@@ -5,13 +5,15 @@ from tqdm.asyncio import tqdm
 from guildmaster.config.logger import Logger
 from guildmaster.client.discord_client import DiscordClient
 
+
 class DiscordRoleManager:
     """
     A class for managing a role to every member in a Discord server.
     """
+
     def __init__(self):
         self.logger = Logger.setup_logger(__name__)
-    
+
     def assign_to_all(self, guild: int, role: str, delay: float = 3.0):
         """
         Assign a role to every member in a Discord server.
@@ -42,7 +44,9 @@ class DiscordRoleManager:
                 await client.bot.close()
                 return
 
-            self.logger.debug("Assigning role '%s' to all members of '%s'...", role, guild_obj.name)
+            self.logger.debug(
+                "Assigning role '%s' to all members of '%s'...", role, guild_obj.name
+            )
 
             # Iterate through each member and add the role if they don't have it
             members = guild_obj.members
@@ -50,10 +54,17 @@ class DiscordRoleManager:
                 if role_obj not in member.roles:
                     try:
                         await member.add_roles(role_obj)
-                        self.logger.debug("Added role to %s#%s", member.name, member.discriminator)
+                        self.logger.debug(
+                            "Added role to %s#%s", member.name, member.discriminator
+                        )
                         await asyncio.sleep(delay)
                     except Exception as e:
-                        self.logger.error("Failed to add role to %s#%s: %s", member.name, member.discriminator, e)
+                        self.logger.error(
+                            "Failed to add role to %s#%s: %s",
+                            member.name,
+                            member.discriminator,
+                            e,
+                        )
 
             self.logger.debug("Finished processing all members.")
             await client.bot.close()
