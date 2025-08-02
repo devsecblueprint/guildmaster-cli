@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "guildmaster-cli"
-version = "1.0.0"
+dynamic = ["version"]
 authors = [
     {name = "Damien Burks", email = "damien@devsecblueprint.com"}
 ]
@@ -31,6 +31,9 @@ guildmaster = "guildmaster.cli:main"
 zip-safe = true
 include-package-data = true
 
+[tool.setuptools.dynamic]
+version = {attr = "guildmaster.__version__"}
+
 [tool.setuptools.packages.find]
 where = ["src"]
 exclude = ["tests"]
@@ -43,3 +46,11 @@ current_version = "1.1.0"
 version_pattern = "MAJOR.MINOR.PATCH"
 commit = true
 tag = true
+
+[tool.bumpver.file_patterns]
+"pyproject.toml" = [
+    'current_version = "{version}"',
+]
+"src/guildmaster/__init__.py" = [
+    '__version__ = "{version}"',
+]
