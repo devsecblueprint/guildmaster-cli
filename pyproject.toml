@@ -42,7 +42,7 @@ exclude = ["tests"]
 "*" = ["*.md"]
 
 [tool.bumpver]
-current_version = "1.1.0"
+current_version = "1.1.1"
 version_pattern = "MAJOR.MINOR.PATCH"
 commit = true
 tag = true
