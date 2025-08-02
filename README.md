@@ -4,6 +4,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 [![PRs Welcome](https://img.shields.io/badge/PRs-Welcome-brightgreen.svg?style=for-the-badge)](https://makeapullrequest.com)
 ![Status](https://img.shields.io/badge/status-in--progress-yellow?style=for-the-badge)
+[![Join Our Discord](https://img.shields.io/discord/1269864144903864381?label=Join%20Discord\&logo=discord\&style=for-the-badge)](discord.gg/enMmUNq8jc)
 
 > ⚔️ **GuildMaster CLI** is an administrative command-line interface built for managing the [DSB Discord](https://discord.gg/devsecblueprint) server. Automate tedious tasks like role synchronization and more as this tool evolves.
 
@@ -81,11 +82,5 @@ We welcome pull requests! If you'd like to contribute:
 ## 📜 License
 
 Licensed under the [MIT License](https://opensource.org/licenses/MIT).
-
-## 💬 Join the Community
-
-Need help or want to hang out? Join the DSB Discord community:
-
-[![Join Our Discord](https://img.shields.io/discord/1234567890?label=Join%20Discord\&logo=discord\&style=for-the-badge)](discord.gg/enMmUNq8jc)
 
 > Made with ❤️ for the builders who shift left and secure everything—code, cloud, and community.
