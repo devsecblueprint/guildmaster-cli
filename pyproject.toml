@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "guildmaster-cli"
+version = "1.0.0"
+authors = [
+    {name = "Damien Burks", email = "damien@devsecblueprint.com"}
+]
+description = "A collection of scripts for managing Discord channels and other administrative tasks"
+readme = "README.md"
+requires-python = ">=3.12"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "fire",
+    "discord.py",
+]
+
+[project.urls]
+Homepage = "https://github.com/devsecblueprint/guildmaster-cli"
+
+[project.scripts]
+guildmaster = "guildmaster.cli:main"
+
+[tool.setuptools]
+zip-safe = true
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["src"]
+exclude = ["tests"]
+
+[tool.setuptools.package-data]
+"*" = ["*.md"]
+
+[tool.bumpver]
+current_version = "1.0.0"
+version_pattern = "MAJOR.MINOR.PATCH"
+commit = true
+tag = true
