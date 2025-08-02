@@ -1,0 +1,14 @@
+[MESSAGES CONTROL]
+disable=
+    too-few-public-methods,
+    broad-except
+
+[MASTER]
+ignore-patterns=test_.*\.py
+
+[FORMAT]
+max-line-length=100
+
+[REPORTS]
+output-format=colorized
+reports=no

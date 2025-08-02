@@ -3,6 +3,7 @@
 A module for managing the Discord client connection.
 This module provides functionality to connect to Discord using a bot token.
 """
+
 import os
 import discord
 from discord.ext import commands
@@ -14,6 +15,7 @@ class DiscordClient:
     """
     A class for managing the Discord client connection.
     """
+
     def __init__(self):
         intents = discord.Intents.default()
         intents.members = True

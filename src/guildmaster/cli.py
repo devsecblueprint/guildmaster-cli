@@ -2,6 +2,7 @@
 # guildmaster.cli
 A command line interface for managing Discord server tasks and settings.
 """
+
 import sys
 import fire
 from guildmaster.tasks.role_manager import DiscordRoleManager
