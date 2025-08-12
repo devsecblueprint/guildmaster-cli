@@ -1,6 +1,6 @@
 import sys
 import fire
-from guildmaster.tasks.role_manager import DiscordRoleManager
+from tasks.role_manager import DiscordRoleManager
 
 
 class GuildMasterCommands:

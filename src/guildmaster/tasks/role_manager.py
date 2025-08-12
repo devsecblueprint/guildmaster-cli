@@ -2,8 +2,8 @@ import asyncio
 import discord
 from tqdm.asyncio import tqdm
 
-from guildmaster.config.logger import Logger
-from guildmaster.client.discord_client import DiscordClient
+from config.logger import Logger
+from client.discord_client import DiscordClient
 
 
 class DiscordRoleManager:
