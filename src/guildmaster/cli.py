@@ -1,3 +1,8 @@
+"""
+# guildmaster.cli
+A command line interface for managing Discord server tasks and settings.
+"""
+
 import sys
 import fire
 from tasks.role_manager import DiscordRoleManager
@@ -13,6 +18,10 @@ class GuildMasterCommands:
 
 
 def main():
+    """
+    Main entry point for the GuildMaster CLI.
+    Initializes the command line interface and handles exceptions.
+    """
     try:
         fire.Fire(name="guildmaster", component=GuildMasterCommands)
     except KeyboardInterrupt:

@@ -1,7 +1,15 @@
+"""
+A module for configuring logging in the GuildMaster application.
+"""
+
 import logging
 
 
 class Logger:
+    """
+    A class for setting up a logger for the GuildMaster application.
+    """
+
     @staticmethod
     def setup_logger(name: str, level: int = logging.INFO) -> logging.Logger:
         """

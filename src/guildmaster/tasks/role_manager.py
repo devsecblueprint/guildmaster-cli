@@ -1,3 +1,9 @@
+"""
+# guildmaster.tasks.role_manager
+A module for managing roles in a Discord server.
+This module provides functionality to assign a specific role to all members of a Discord server.
+"""
+
 import asyncio
 import discord
 from tqdm.asyncio import tqdm
